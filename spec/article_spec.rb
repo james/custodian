@@ -23,7 +23,6 @@ end
 
 describe "Processing 10 search results" do
   before(:each) do
-    Custodian.api_key = 'ca5vtx73fdrrydq7vwrxvqvn'
     @search = Custodian::Article.extract_articles(File.open(File.dirname(__FILE__) + '/search.xml'))
   end
 
@@ -31,5 +30,19 @@ describe "Processing 10 search results" do
     @search.class.should == Array
     @search.size.should == 10
     @search.each {|x| x.class.should == Custodian::Article}
+  end
+end
+
+describe "An article" do
+  before(:each) do
+    @article = Custodian::Article.new(Hpricot(File.open(File.dirname(__FILE__) + '/article.xml')))
+  end
+
+  it "should return the innerHTML of a single xml field on method_missing" do
+    @article.publication.should == "guardian.co.uk"
+  end
+  
+  it "should replace section-name with section-name on method_missing" do
+    @article.section_name.should == "Media"
   end
 end
