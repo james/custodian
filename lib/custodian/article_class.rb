@@ -6,7 +6,7 @@ module Custodian
       if type.class == Fixnum
         find_article_by_id(type)
       elsif type == :first
-        find_articles_by_conditions(conditions.merge({:limit => 1}).first)
+        find_articles_by_conditions(conditions.merge({:limit => 1})).first
       elsif type == :all
         find_articles_by_conditions(conditions)
       else
@@ -20,7 +20,11 @@ module Custodian
   
     def self.find_articles_by_conditions(conditions={})
       conditions = normalise_conditions(conditions)
-      Hpricot(request('/content/search', conditions)).search('//search/results/content').collect{|r| Article.new(r)}
+      extract_articles(request('/content/search', conditions))
+    end
+    
+    def self.extract_articles(xml)
+      Hpricot(xml).search('//search/results/content').collect{|r| Article.new(r)}
     end
   
     private
