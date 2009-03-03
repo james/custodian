@@ -6,8 +6,8 @@ module Custodian
       @xml = xml
     end
     
-    def import_xml
-      
+    def [](search_string)
+      xml.search(search_string)
     end
   end
 end
