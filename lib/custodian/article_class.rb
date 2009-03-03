@@ -20,7 +20,7 @@ module Custodian
   
     def self.find_articles_by_conditions(conditions={})
       conditions = normalise_conditions(conditions)
-      Hpricot(request('/content/search', conditions))
+      Hpricot(request('/content/search', conditions)).search('//search/results/content').collect{|r| Article.new(r)}
     end
   
     private

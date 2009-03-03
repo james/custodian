@@ -1,7 +1,9 @@
 module Custodian
   class Article
-    def initialize
-      
+    attr_accessor :xml
+    
+    def initialize(xml)
+      @xml = xml
     end
     
     def import_xml
