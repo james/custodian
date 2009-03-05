@@ -7,12 +7,26 @@ module Custodian
     end
     
     def [](search_string)
-      xml.search(search_string).first
+      xml.search(search_string)
     end
     
     def method_missing(search_string)
       search_string = search_string.to_s.gsub("_", "-")
-      self[search_string].html
+      if self[search_string].size == 0
+        #raise NoMethodError
+        nil
+      else
+        self[search_string].html
+      end
     end
+    
+    def api_url
+      xml.attributes["api-url"]
+    end
+    
+    def web_url
+      xml.attributes["web-url"]
+    end
+    
   end
 end

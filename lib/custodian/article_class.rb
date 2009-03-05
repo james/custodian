@@ -30,19 +30,24 @@ module Custodian
     private
   
     def self.request(resource, args = nil)
+      
       url = URI.join('http://api.guardianapis.com', resource)
       if args
-  			url.query = args.map { |k,v| "%s=%s" % [URI.encode(k.to_s), URI.encode(v)] }.join("&")
-  		end
+    		url.query = args.map { |k,v| "%s=%s" % [URI.encode(k.to_s), URI.encode(v)] }.join("&")
+    	end
   		
-  		puts "#{url.host}#{url.request_uri}"
-		
-  		req = Net::HTTP::Get.new(url.request_uri)
-  		http = Net::HTTP.new(url.host, url.port)
-      # http.use_ssl = (url.port == 443)
+    	#puts "#{url.host}#{url.request_uri}"
+		  
+		  begin
+    		req = Net::HTTP::Get.new(url.request_uri)
+    		http = Net::HTTP.new(url.host, url.port)
+        # http.use_ssl = (url.port == 443)
 
-  		res = http.start() { |conn| conn.request(req) }
-  		res.body
+    		res = http.start() { |conn| conn.request(req) }
+    		res.body
+  		rescue
+  		  throw "An Error Occurred connecting: #{$!}"
+		  end
     end
   
     def self.normalise_conditions(conditions)
