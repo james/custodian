@@ -44,7 +44,7 @@ Tom Armitage (http://infovore.org)
 
 (The MIT License)
 
-Copyright (c) 2009 James Darlings
+Copyright (c) 2009 James Darling
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
