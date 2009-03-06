@@ -1,6 +1,12 @@
 module Custodian
   class Tag
     require 'hpricot'
+    
+    def self.count(conditions)
+      conditions = normalise_conditions(conditions)
+      xml = request('/content/tags', conditions)
+      count_tags(xml)
+    end
   
     def self.find(type, conditions={})
       if type == :all
@@ -17,6 +23,10 @@ module Custodian
     
     def self.extract_tags(xml)
       Hpricot(xml).search('//tags/tag').collect{|r| Tag.new(r)}
+    end
+    
+    def self.count_tags(xml)
+      Hpricot(xml).search("/tags").first.attributes["count"].to_i
     end
   
     private

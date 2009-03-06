@@ -19,6 +19,17 @@ describe "Processing 10 tag search results" do
   end
 end
 
+describe "Counting results for a particular query" do
+  before(:each) do
+    @search = Custodian::Tag.extract_tags(File.open(File.dirname(__FILE__) + '/tags.xml'))
+    Custodian::Tag.stub!(:count_tags).and_return(Hpricot(File.open(File.dirname(__FILE__) + '/tags.xml')).search("/tags").first.attributes["count"].to_i)
+  end
+  
+  it "should return the total number of available results for a query" do
+    Custodian::Tag.count_tags(:q => "uk").should == 13
+  end
+end
+
 describe "A tag" do
   before(:each) do
     @tag = Custodian::Tag.new(Hpricot(File.open(File.dirname(__FILE__) + '/tag.xml')))
