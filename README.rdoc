@@ -28,20 +28,20 @@ http://api.guardianapis.com/docs/
 
 == REQUIREMENTS:
 
-Ruby
-Hpricot (http://github.com/why/hpricot/)
-A valid Guardian Open Platform API Key, which you can get from http://guardian.mashery.com
+  Ruby
+  Hpricot (http://github.com/why/hpricot/)
+  A valid Guardian Open Platform API Key, which you can get from http://guardian.mashery.com
 
 == INSTALL:
 
-$ gem sources -a http://gems.github.com (you only have to do this once)
-$ sudo gem install james-custodian
+  $ gem sources -a http://gems.github.com (you only have to do this once)
+  $ sudo gem install james-custodian
 
 == CONTRIBUTORS:
 
-James Darling (http://coupde.com/)
-Kalvir Sandhu (http://kalv.co.uk)
-Tom Armitage (http://infovore.org)
+  James Darling (http://coupde.com/)
+  Kalvir Sandhu (http://kalv.co.uk)
+  Tom Armitage (http://infovore.org)
 
 == LICENSE:
 
