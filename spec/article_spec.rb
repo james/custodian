@@ -33,6 +33,17 @@ describe "Processing 10 search results" do
   end
 end
 
+describe "Counting results for a particular query" do
+  before(:each) do
+    Custodian::Article.stub!(:count_tags).and_return(Hpricot(File.open(File.dirname(__FILE__) + '/search.xml')).search("/search").first.attributes["count"].to_i)
+  end
+  
+  it "should return the total number of available results for a query" do
+    Custodian::Article.count_tags(:q => "uk").should == 1007029
+  end
+end
+
+
 describe "An article" do
   before(:each) do
     @article = Custodian::Article.new(Hpricot(File.open(File.dirname(__FILE__) + '/article.xml')))

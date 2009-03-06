@@ -1,7 +1,12 @@
 module Custodian
   class Article
     require 'hpricot'
-  
+
+    def self.count(conditions)
+      conditions = normalise_conditions(conditions)
+      count_results(request('/content/search', conditions))
+    end
+
     def self.find(type, conditions={})
       if type.class == Fixnum
         find_article_by_id(type)
@@ -30,6 +35,10 @@ module Custodian
     
     def self.extract_article(xml)
       Article.new(Hpricot(xml).search("/content").first)
+    end
+
+    def self.count_results(xml)
+      Hpricot(xml).search("/search").first.attributes["count"].to_i
     end
   
     private
