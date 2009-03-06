@@ -3,9 +3,27 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 module Custodian
   VERSION = '0.0.1'
+  
+  def self.proxy_addr
+    @@proxy_addr
+  end
+  
+  def self.proxy_port
+    @@proxy_port
+  end
+  
+  def self.proxy_addr=(proxy_addr)
+    @@proxy_addr = proxy_addr
+  end
+  
+  def self.proxy_port=(proxy_port)
+    @@proxy_port = proxy_port
+  end
+  
   def self.api_key
     @@api_key
   end
+  
   def self.api_key=(api_key)
     @@api_key = api_key
   end

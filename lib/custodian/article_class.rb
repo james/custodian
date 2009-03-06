@@ -15,7 +15,7 @@ module Custodian
     end
   
     def self.find_article_by_id(id)
-    
+      
     end
   
     def self.find_articles_by_conditions(conditions={})
@@ -36,11 +36,15 @@ module Custodian
     		url.query = args.map { |k,v| "%s=%s" % [URI.encode(k.to_s), URI.encode(v)] }.join("&")
     	end
   		
-    	#puts "#{url.host}#{url.request_uri}"
+    	#puts "http://#{url.host}#{url.request_uri}"
 		  
 		  begin
     		req = Net::HTTP::Get.new(url.request_uri)
-    		http = Net::HTTP.new(url.host, url.port)
+    		if Custodian.proxy_addr && Custodian.proxy_port
+    		  http = Net::HTTP::Proxy(Custodian.proxy_addr, Custodian.proxy_port).new(url.host, url.port)
+  		  else
+    		  http = Net::HTTP.new(url.host, url.port)
+  		  end
         # http.use_ssl = (url.port == 443)
 
     		res = http.start() { |conn| conn.request(req) }
