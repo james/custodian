@@ -6,6 +6,8 @@ Rakefile
 lib/custodian.rb
 lib/custodian/article.rb
 lib/custodian/article_class.rb
+lib/custodian/tag.rb
+lib/custodian/tag_class.rb
 script/console
 script/destroy
 script/generate

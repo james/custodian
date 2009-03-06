@@ -1,0 +1,12 @@
+<tags count="13" start-index="0">
+  <tag name="UK general election 2001" type="keyword" filter="/politics/election2001" api-url="http://api.guardianapis.com/content/search?filter=/politics/election2001" web-url="http://www.guardian.co.uk/politics/election2001"></tag>
+  <tag name="SocietyGuardian.co.uk briefing" type="keyword" filter="/society/societybriefing" api-url="http://api.guardianapis.com/content/search?filter=/society/societybriefing" web-url="http://www.guardian.co.uk/society/societybriefing"></tag>
+  <tag name="UK gun violence" type="keyword" filter="/uk/ukguns" api-url="http://api.guardianapis.com/content/search?filter=/uk/ukguns" web-url="http://www.guardian.co.uk/uk/ukguns"></tag>
+  <tag name="UK security and terrorism" type="keyword" filter="/uk/uksecurity" api-url="http://api.guardianapis.com/content/search?filter=/uk/uksecurity" web-url="http://www.guardian.co.uk/uk/uksecurity"></tag>
+  <tag name="UK Coal" type="keyword" filter="/business/ukcoal" api-url="http://api.guardianapis.com/content/search?filter=/business/ukcoal" web-url="http://www.guardian.co.uk/business/ukcoal"></tag>
+  <tag name="UK general election 2005" type="keyword" filter="/politics/election2005" api-url="http://api.guardianapis.com/content/search?filter=/politics/election2005" web-url="http://www.guardian.co.uk/politics/election2005"></tag>
+  <tag name="UK national newspapers" type="keyword" filter="/media/national-newspapers" api-url="http://api.guardianapis.com/content/search?filter=/media/national-newspapers" web-url="http://www.guardian.co.uk/media/national-newspapers"></tag>
+  <tag name="Made in the UK" type="keyword" filter="/lifeandstyle/madeintheuk" api-url="http://api.guardianapis.com/content/search?filter=/lifeandstyle/madeintheuk" web-url="http://www.guardian.co.uk/lifeandstyle/madeintheuk"></tag>
+  <tag name="Plan UK" type="keyword" filter="/planuk" api-url="http://api.guardianapis.com/content/search?filter=/planuk" web-url="http://www.guardian.co.uk/planuk"></tag>
+  <tag name="UK news" type="keyword" filter="/uk" api-url="http://api.guardianapis.com/content/search?filter=/uk" web-url="http://www.guardian.co.uk/uk"></tag>
+</tags>
