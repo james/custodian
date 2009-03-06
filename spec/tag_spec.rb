@@ -21,7 +21,6 @@ end
 
 describe "Counting results for a particular query" do
   before(:each) do
-    @search = Custodian::Tag.extract_tags(File.open(File.dirname(__FILE__) + '/tags.xml'))
     Custodian::Tag.stub!(:count_tags).and_return(Hpricot(File.open(File.dirname(__FILE__) + '/tags.xml')).search("/tags").first.attributes["count"].to_i)
   end
   

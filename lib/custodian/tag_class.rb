@@ -4,8 +4,7 @@ module Custodian
     
     def self.count(conditions)
       conditions = normalise_conditions(conditions)
-      xml = request('/content/tags', conditions)
-      count_tags(xml)
+      count_tags(request('/content/tags', conditions))
     end
   
     def self.find(type, conditions={})
