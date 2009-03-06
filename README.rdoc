@@ -17,7 +17,10 @@ Custodian.proxy_port = 1234 # optional
 
 articles = Custodian::Article.find(:all, {:q => "Obama"}) # find all articles (limited to 10 by default) that match query "Obama"
 article = Custodian::Article.find(344089365) # recover an individual article by ID
+count = Custodian::Article.count({:q => "Obama"}) # Count the total number of results available for a valid query
+
 tags = Custodian::Tag.find(:all, "UK") # find all keywords (limited to 10 by default) that match query "UK"
+count = Custodian::Article.count({:q => "Obama"}) # Count the total number of keyword results available for a valid query
 
 The conditions hash is a key-value pair hash of parameters that match the Open Platform's query-string options. For more information, see the API Explorer:
 
