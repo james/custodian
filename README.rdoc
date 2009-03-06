@@ -1,32 +1,50 @@
 = custodian
 
-* FIX (url)
+http://github.com/james/custodian
 
 == DESCRIPTION:
 
-FIX (describe your package)
-
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
+Custodian is a Ruby gem for accessing the Guardian's Open Platform API (http://www.guardian.co.uk/open-platform)
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+require 'rubygems'
+require 'custodian'
+
+Custodian.api_key = "f00" # your api key here
+Custodian.proxy_addr = "proxy.example.com" # optional
+Custodian.proxy_port = 1234 # optional
+
+articles = Custodian::Article.find(:all, {:q => "Obama"}) # find all articles (limited to 10 by default) that match query "Obama"
+article = Custodian::Article.find(344089365) # recover an individual article by ID
+tags = Custodian::Tag.find(:all, "UK") # find all keywords (limited to 10 by default) that match query "UK"
+
+The conditions hash is a key-value pair hash of parameters that match the Open Platform's query-string options. For more information, see the API Explorer:
+
+http://api.guardianapis.com/docs/
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+Ruby
+Hpricot (http://github.com/why/hpricot/)
+A valid Guardian Open Platform API Key, which you can get from http://guardian.mashery.com
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+$ gem sources -a http://gems.github.com (you only have to do this once)
+$ sudo gem install james-custodian
+
+== CONTRIBUTORS:
+
+James Darling (http://coupde.com/)
+Kalvir Sandhu (http://kalv.co.uk)
+Tom Armitage (http://infovore.org)
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 James Darlings
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
