@@ -14,8 +14,9 @@ module Custodian
       end
     end
   
-    def self.find_article_by_id(id)
-      
+    def self.find_article_by_id(id, conditions={})
+      conditions = normalise_conditions(conditions)
+      extract_article(request("/content/item/#{id}", conditions))
     end
   
     def self.find_articles_by_conditions(conditions={})
@@ -25,6 +26,10 @@ module Custodian
     
     def self.extract_articles(xml)
       Hpricot(xml).search('//search/results/content').collect{|r| Article.new(r)}
+    end
+    
+    def self.extract_article(xml)
+      Article.new(Hpricot(xml).search("/content").first)
     end
   
     private
