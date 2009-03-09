@@ -4,6 +4,10 @@ $:.unshift(File.dirname(__FILE__)) unless
 module Custodian
   VERSION = '0.0.4'
   
+  @@proxy_addr = nil
+  @@proxy_port = nil
+  @@api_key = nil
+  
   def self.proxy_addr
     @@proxy_addr
   end
